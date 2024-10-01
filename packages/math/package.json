@@ -53,9 +53,9 @@
   },
   "scripts": {
     "gen:types": "rm -rf types && tsc",
-    "build:umd": "cross-env NODE_ENV=production webpack --config webpack.prod.config.js",
-    "build:esm": "rm -rf dist && node ../../scripts/buildUtils.js && yarn gen:types",
-    "build:umd:withAnalyzer": "cross-env NODE_ENV=production ANALYZER=true webpack --config webpack.prod.config.js",
+    "build:umd": "node init && cross-env NODE_ENV=production webpack --config webpack.prod.config.js",
+    "build:esm": "node init && rm -rf dist && node ../../scripts/buildUtils.js && yarn gen:types",
+    "build:umd:withAnalyzer": "node init && cross-env NODE_ENV=production ANALYZER=true webpack --config webpack.prod.config.js",
     "pack": "yarn build:umd && yarn pack"
   }
 }
